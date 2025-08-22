@@ -7,7 +7,7 @@ import { setupSwagger } from './src/config/swagger.config.js';
 const PORT = 3000;
 const app = express();
 
-setupSwagger(app)
+setupSwagger(app);
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     authorName: 'Erick Gonzalez',
     githubName: 'https://github.com/muke78',
+    companyName: 'https://qualifinds.com/',
   });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

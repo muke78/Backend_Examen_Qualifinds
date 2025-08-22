@@ -5,10 +5,12 @@ import {
 
 let pokemons = await loadPokemons();
 
+// GET: get_all_pokemons
 export const GetAllPokemons = async (req, res) => {
   res.status(200).json(pokemons);
 };
 
+// GET: get_all_pokemons_by_id
 export const GetPokemonsById = async (req, res) => {
   const { id } = req.params;
 
@@ -19,6 +21,7 @@ export const GetPokemonsById = async (req, res) => {
   res.json(pokemon);
 };
 
+// POST insert_new_pokemon
 export const InsertPokemons = async (req, res) => {
   const { id, name, type, hp, attack, defense } = req.body;
 
@@ -41,6 +44,7 @@ export const InsertPokemons = async (req, res) => {
   res.status(201).json(newPokemon);
 };
 
+// PUT updated_all_data_pokemon
 export const UpdatedAllPokemons = async (req, res) => {
   const { id } = req.params;
 
@@ -55,6 +59,7 @@ export const UpdatedAllPokemons = async (req, res) => {
   await savePokemons(pokemons);
 };
 
+// PATCH updated_unique_data_pokemon
 export const UpdatedUniquePokemon = async (req, res) => {
   const { id } = req.params;
 
@@ -70,12 +75,13 @@ export const UpdatedUniquePokemon = async (req, res) => {
   await savePokemons(pokemons);
 };
 
+// DELETE delete_pokemon
 export const DeletePokemons = async (req, res) => {
   const { id } = req.params;
 
   const index = pokemons.findIndex((p) => p.id === parseInt(id));
 
-  console.log(index)
+  console.log(index);
 
   if (index === -1) {
     return res.status(404).json({ message: 'Pokemon not found' });
