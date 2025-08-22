@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: Pokemons
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Pokemons
+paths:
+  /api/qualifinds/pokemons:
+    get:
+      tags:
+        - Pokemons
+      summary: Lista pokemones
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Pokemons
+      summary: Insertar pokemon
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 120
+                name: Prueba
+                type: grass
+                hp: 100
+                attack: 20
+                defense: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/qualifinds/pokemons/2:
+    get:
+      tags:
+        - Pokemons
+      summary: Lista de pokemones por id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/qualifinds/pokemons/122:
+    put:
+      tags:
+        - Pokemons
+      summary: Actualizar pokemon
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: charmeleon
+                type: fire
+                hp: 100
+                attack: 20
+                defense: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Pokemons
+      summary: Eliminar un pokemon
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/qualifinds/pokemons/121:
+    patch:
+      tags:
+        - Pokemons
+      summary: Actualizar un campo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Hola pokemones
+                type: grass
+                hp: 100
+                attack: 20
+                defense: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
